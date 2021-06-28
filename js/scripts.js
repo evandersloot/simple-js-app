@@ -1,5 +1,5 @@
 // add blank array
-var pokemonList = [];
+// var pokemonList = [];
 
 // add objects to array
 let pokemonList = [
@@ -32,3 +32,8 @@ let pokemonList = [
     healthPoints: 90,
   },
 ];
+
+for (let i = 0; i < pokemonList.length; i++) {
+    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')');
+    console.log(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' );
+  }
