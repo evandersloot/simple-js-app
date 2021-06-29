@@ -34,6 +34,19 @@ let pokemonList = [
 ];
 
 for (let i = 0; i < pokemonList.length; i++) {
-    document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')');
-    console.log(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' );
+      document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height +  ' weight: ' + pokemonList[i].weight + ')' );
+    if (pokemonList[i].height <= 2) {
+      document.write(' This Pokemon is kind of small...');
+    }else if (pokemonList[i].height > 2 && pokemonList[i].height < 3){
+      document.write(' This is an average Pokemon,');
+    }else {
+      document.write('This Pokemon is LARGE and in charge,');
+    }
+    if (pokemonList[i].weight <= 15) {
+      document.write(' but is also slight.');
+    }else if (pokemonList[i].weight > 15 && pokemonList[i].weight < 35) {
+      document.write(' but is fit!');
+    }else {
+      document.write(' but may want to watch its weight!');
+    }
   }
