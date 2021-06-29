@@ -33,6 +33,8 @@ let pokemonList = [
   },
 ];
 
+// if-else loop. was able to figure out the nesting of two different variables
+
 for (let i = 0; i < pokemonList.length; i++) {
       document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height +  ' weight: ' + pokemonList[i].weight + ')' );
     if (pokemonList[i].height <= 2) {
@@ -49,4 +51,5 @@ for (let i = 0; i < pokemonList.length; i++) {
     }else {
       document.write(' but may want to watch its weight!');
     }
+      document.write('<br><br>');
   }
