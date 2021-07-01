@@ -1,7 +1,3 @@
-// add blank array
-// var pokemonList = [];
-
-// add objects to array
 let pokemonList = [
   {
     name: 'Charmander',
@@ -33,23 +29,26 @@ let pokemonList = [
   },
 ];
 
-// if-else loop. was able to figure out the nesting of two different variables
+//forEach() loop added
+pokemonList.forEach(function(pokemon){
+document.write(pokemon.name + ' (height: ' + pokemon.height +  ' weight: ' + pokemon.weight + ')' );
+statement(pokemon.height, pokemon.weight);
+document.write('<br><br>');
+});
 
-for (let i = 0; i < pokemonList.length; i++) {
-      document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height +  ' weight: ' + pokemonList[i].weight + ')' );
-    if (pokemonList[i].height <= 2) {
-      document.write(' This Pokemon is kind of small...');
-    }else if (pokemonList[i].height > 2 && pokemonList[i].height < 3){
-      document.write(' This is an average Pokemon,');
-    }else {
-      document.write('This Pokemon is LARGE and in charge,');
-    }
-    if (pokemonList[i].weight <= 15) {
-      document.write(' but is also slight.');
-    }else if (pokemonList[i].weight > 15 && pokemonList[i].weight < 35) {
-      document.write(' but is fit!');
-    }else {
-      document.write(' but may want to watch its weight!');
-    }
-      document.write('<br><br>');
-  }
+function statement(height, weight){
+if (height <= 2) {
+  document.write(' This Pokemon is kind of small...');
+}else if (height > 2 && height < 3){
+  document.write(' This is an average Pokemon,');
+}else {
+  document.write('This Pokemon is LARGE and in charge,');
+}
+if (weight <= 15) {
+  document.write(' but is also slight.');
+}else if (weight > 15 && weight < 35) {
+  document.write(' but is fit!');
+}else {
+  document.write(' but may want to watch its weight!');
+}
+}
