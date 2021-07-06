@@ -1,4 +1,3 @@
-//IIFE added
 let pokemonRepository = (function () {
   let pokemonList = [
     {
@@ -31,51 +30,56 @@ let pokemonRepository = (function () {
     },
   ];
 
-  function getAll() {
-    return pokemonList;
+  function add(pokemon) {
+    if (
+      typeof pokemon === "object" &&
+      'name' in pokemon &&
+      'height' in pokemon &&
+      'weight' in pokemon &&
+      'type' in pokemon &&
+      'healthPoints' in pokemon
+    ) {
+    pokemonList.push(pokemon);
+    } else {
+      console.log('That is not a correct entry');
+    }
   }
 
-  function add(pokemon) {
-    pokemonList.push(pokemon);
+  function getAll() {
+    return pokemonList;
+    }
+// added elements and appended them
+  function addListItem(pokemon){
+    let pokemonSelect = document.querySelector('.pokemon-list');
+    let listpokemon = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button-class');
+    listpokemon.appendChild(button);
+    pokemonSelect.appendChild(listpokemon);
+// added event handler
+    button.addEventListener('click', function(event){
+      showDetails(pokemon);
+    });
   }
+// added showDetails and log each click
+  function showDetails(pokemon){
+      console.log(pokemon.name);
+  }
+
 
   return {
     getAll: getAll,
-    add: add
-  };
+    add: add,
+    addListItem: addListItem
+    };
 })();
 
-//getAll statement
-  console.log( pokemonRepository.getAll() );
-//added a name outside of the IIFE
-  pokemonRepository.add({ name: 'Ralts' });
-//assicuatuib if the pokemonRepository
-let pokemonAll = pokemonRepository.getAll();
+console.log(pokemonRepository.getAll());
+pokemonRepository.add({ name: 'Ralts', height: 1.04, weight: 14.6, type: 'fairy', healthPoints: 60 });
 
-//forEach() loop added
-pokemonAll.forEach(function(pokemon){
-document.write(pokemon.name + ' (height: ' + pokemon.height +  ' weight: ' + pokemon.weight + ')' );
-statement(pokemon.height, pokemon.weight);
-document.write('<br><br>');
+console.log(pokemonRepository.getAll());
+
+pokemonRepository.getAll().forEach(function(pokemon) {
+  pokemonRepository.addListItem(pokemon);
 });
-
-function statement(height, weight){
-  if (height <= 2) {
-    document.write(' This Pokemon is kind of small...');
-  }else if (height > 2 && height < 3){
-    document.write(' This is an average Pokemon,');
-  }else if (height > 3) {
-    document.write(' This Pokemon is LARGE and in charge,');
-  }else {
-    document.write(' Not sure about this one,');
-  }
-  if (weight <= 15){
-    document.write(' but is also slight.');
-  }else if (weight > 15 && weight < 35){
-    document.write(' but is fit!');
-  }else if (weight > 35){
-    document.write(' but may want to watch its weight!');
-  }else {
-    document.write(' we will check on it.');
-  }
-}
