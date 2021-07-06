@@ -29,17 +29,42 @@ hr{
 	height: 1px;
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
+
+h1 {
+  font-family: 'Oswald', sans-serif;
+  margin-left: 20px;
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  opacity: .5;
+}
 /* added button-class and styling */
 .button-class {
   background-color: yellow;
   color: black;
-  padding: 16px 32px;
+  padding: 10px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  width: 20%;
   font-size: 16px;
   margin: 4px 2px;
   transition-duration: .5s;
   cursor: pointer;
   border: 2px solid black;
+}
+
+.pokemon-list {
+  list-style-type: none;
+  padding-left: 5px;
+  margin-left: 5px;
+  width: auto;
+  min-height: auto;
 }
