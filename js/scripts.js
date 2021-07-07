@@ -19,19 +19,19 @@ let pokemonRepository = (function () {
 
   function addListItem(pokemon){
     let pokemonList = document.querySelector('.pokemon-list');
-    let listpokemon = document.createElement('li');
+    let listPokemon = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
     button.classList.add('button-class');
     listpokemon.appendChild(button);
     pokemonList.appendChild(listpokemon);
 
-    button.addEventListener('click', function(event){
+    button.addEventListener('click', function(){
       showDetails(pokemon);
     });
   }
 
-  function loadList(pokemon) {
+  function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
@@ -57,7 +57,7 @@ let pokemonRepository = (function () {
       pokemon.height = details.height;
       pokemon.weight = details.weight;
       pokemon.types = details.types;
-      pokemon.healthpoints = details.healthpoints;
+      pokemon.healthPoints = details.healthPoints;
     }).catch(function (e) {
       console.error(e);
     });
