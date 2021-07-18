@@ -1,7 +1,11 @@
+/* eslint-env jquery */
+/*eslint no-redeclare: "off"*/
+//IIFE
 let pokemonRepository = (function () {
   let pokemonList = []
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
+//adding Pokemon
   function add(pokemon) {
     if (
       typeof pokemon === 'object' &&
@@ -13,10 +17,12 @@ let pokemonRepository = (function () {
     }
   }
 
+//retrieving from list
   function getAll() {
     return pokemonList;
     }
 
+//create button for each item
   function addListItem(pokemon){
     let pokemonList = document.querySelector('.list-group');
     let listPokemon = document.createElement('li');
@@ -37,6 +43,7 @@ let pokemonRepository = (function () {
     });
   }
 
+//retrieve list and details from API
   function loadList() {
     return fetch(apiUrl)
     .then(function (response) {
@@ -49,7 +56,6 @@ let pokemonRepository = (function () {
           detailsUrl: item.url
         };
         add(pokemon);
-        //console.log(pokemon);
       });
     })
     .catch(function (e) {
@@ -57,6 +63,7 @@ let pokemonRepository = (function () {
     });
   }
 
+//loading details from API
     function loadDetails(pokemon) {
     let url = pokemon.detailsUrl;
     return fetch(url)
@@ -73,7 +80,7 @@ let pokemonRepository = (function () {
       pokemon.types.push(details.types[i].type.name);
     }
       pokemon.abilities = [];
-      for (var i=0; i < details.abilities.length; i++){
+      for (var i=0; i < details.abilities.length; i++) {
       pokemon.abilities.push(details.abilities[i].ability.name);
       }
     })
@@ -82,6 +89,7 @@ let pokemonRepository = (function () {
     });
   }
 
+//showing details
   function showDetails(pokemon){
     pokemonRepository.loadDetails(pokemon).then(function () {
       showModal(pokemon);
@@ -89,9 +97,9 @@ let pokemonRepository = (function () {
     });
   }
 
+//showing modal with details
   function showModal(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function() {
-      let modalHeader = $('.modal-header');
       let modalTitle = $('.modal-title');
       let modalBody = $('.modal-body');
 
@@ -120,7 +128,24 @@ let pokemonRepository = (function () {
     });
   }
 
+//Search for Pokemon
+  function search() {
+    let searchPokemon = document.querySelector('#search-bar');
 
+    searchPokemon.addEventListener('input', function() {
+
+      let pokemonList = document.querySelectorAll('.list-group-item');
+      let searchItem = searchPokemon.value.toLowerCase();
+
+      pokemonList.forEach(function(pokemon) {
+        if (pokemon.innerText.toLowerCase().indexOf(searchItem) > -1) {
+          pokemon.style.display = '';
+        } else {
+          pokemon.style.display = 'none';
+        }
+      });
+    });
+  }
 
   return {
     add: add,
@@ -129,7 +154,8 @@ let pokemonRepository = (function () {
     loadDetails: loadDetails,
     addListItem: addListItem,
     showDetails: showDetails,
-    showModal: showModal
+    showModal: showModal,
+    search: search
     };
 })();
 
@@ -138,3 +164,4 @@ let pokemonRepository = (function () {
     pokemonRepository.addListItem(pokemon);
     });
   });
+pokemonRepository.search();
