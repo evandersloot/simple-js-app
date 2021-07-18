@@ -7,10 +7,10 @@ body {
   line-height: 1.8;
   padding: 20px;
 }
-
+/* List styling */
 .list-group {
   margin: 10px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .list-group-item {
@@ -33,7 +33,7 @@ body {
   border-color: maroon;
   border-radius: 5px;
 }
-
+/* button effects */
 button.btn.btn-block:hover {
   transition: font-size 0.4s ease-in-out;
   font-size: 20px;
