@@ -1,4 +1,10 @@
 # simple-js-app
+ PokeDex 
  
-*Bootstrap - rebuilt modal using Bootstrap as well as incorporating Bootstrap navbar
-* Incorporated Bootstrap styling within project.
+ an interactive app including first generation Pokemon.
+ app provides details of each Pokemon, including:
+  Height
+  Weight
+  Images
+  Types
+  Abilities
