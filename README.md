@@ -1,7 +1,7 @@
 # simple-js-app
- ** PokeDex 
+   # PokeDex 
  
- **An interactive app including first generation Pokemon.
+ * An interactive app including first generation Pokemon.
    app provides details of each Pokemon, including:
 * Height
 * Weight
@@ -9,11 +9,11 @@
 * Types
 * Abilities
 
-** Objective
+* Objective
 To build a small web application with HTML, CSS, and JavaScript that loads
 data from an external API and enables the viewing of data points in detail.
 
-** Features and Requirements
+# Features and Requirements
 * User Goals
 Your users should be able to view a list of data and see more details for a given data item on demand.
 It’s up to you to come up with a type of data you want to display (see this list of public APIs for an
